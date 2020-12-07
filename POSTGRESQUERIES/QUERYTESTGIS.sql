@@ -1,0 +1,6 @@
+SELECT tg.*, ST_Distance(ST_Transform(tg.geog::geometry, 2163), ST_Transform('SRID=4326;POINT(41.87675134623151 -87.67013851445722)'::geometry, 2163))
+FROM
+  TestGIS tg
+  
+ORDER BY ST_Distance(tg.geog, 'SRID=4326;POINT(41.87675134623151 -87.67013851445722)') ASC
+LIMIT 5;
